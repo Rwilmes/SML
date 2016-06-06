@@ -1,0 +1,70 @@
+% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %
+%
+% You have to install the TUD latex template from here
+% http://exp1.fkp.physik.tu-darmstadt.de/tuddesign/
+%
+% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %
+
+\documentclass[twoside,english,colorbacktitle,accentcolor=tud9c]{tudexercise}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage{mathtools}
+\usepackage{dsfont}
+\usepackage{units}
+\usepackage{subfigure}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{fancyref}
+\usepackage[ngerman,english]{babel}
+
+\def\homework{2} % Number of the homework
+\def\homeworkVer{1} % Version of the homework
+\def\homeworkSolVer{1} % Version of the solutions
+
+\def\WithSol{}
+
+\ifdefined\WithSol
+\usepackage[solutions]{iasHomework}
+\else
+\usepackage{iasHomework}
+\fi
+
+\hwtitle{Machine Learning}{Summer Semester 2016}{Prof. Dr. J. Peters, F. Veiga, S. Parisi}
+
+\begin{document}
+
+%==========================================================================
+
+\maketitle
+
+\begin{examheader}
+	\textmb{Machine Learning - Homework \arabic{section}}
+	\examheaderdefault 
+\end{examheader} 
+
+\deadline{Wednesday, 08 June 2016 (before the lecture)}
+
+%=========================================================
+
+\input{bayesDec.tex}
+
+\newpage
+
+\input{densEst.tex}
+
+\newpage
+
+\input{nonParam.tex}
+
+\newpage
+
+\input{em.tex}
+
+%==========================================================================
+
+\end{document}

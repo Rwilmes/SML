@@ -1,0 +1,92 @@
+\newif\ifvimbug
+\vimbugfalse
+
+\ifvimbug
+\begin{document}
+\fi
+
+\exercise{Density Estimation}
+In this exercise, you will use the datasets \texttt{densEstClass1.txt} 
+and \texttt{densEstClass2.txt}. The datasets contain 2D data belonging
+to two classes, $C_1$ and $C_2$.
+
+\begin{questions}
+
+%----------------------------------------------
+
+\begin{question}{Gaussian Maximization Likelihood Estimate}{10}
+Derive the ML estimate for the mean and covariance of the \textbf{multivariate} Gaussian distribution. Start your derivations with the function you optimize. Assume that you can collect i.i.d data. (Hint: you can find many matrix identities on the Matrix Cookbook and at \url{http://en.wikipedia.org/wiki/Matrix_calculus}.)
+
+\begin{answer}
+
+\end{answer}
+
+\end{question}
+
+
+%----------------------------------------------
+
+\begin{question}{Prior Probabilities}{2}
+Compute the prior probability of each class from the dataset. 
+
+\begin{answer}
+
+\end{answer}
+
+\end{question}
+
+
+%----------------------------------------------
+
+\begin{question}{Biased ML Estimate}{5}
+Define the bias of an estimator and write how we can compute it.
+Then calculate the biased and unbiased estimates of the conditional distribution $p(x|C_i)$, assuming that each class can be modeled with a Gaussian distribution. Which parameters have to be calculated?
+Show the final result and attach a snippet of your code.
+Do not use existing functions, but rather implement the computations by yourself!
+
+\begin{answer}
+
+\end{answer}
+
+\end{question}
+
+
+%----------------------------------------------
+
+\begin{question}{Class Density}{5}
+Using the unbiased estimates from the previous question, fit a Gaussian distribution to the data of each class. Generate a single plot showing the data points and the probability densities of each class.
+(Hint: use the contour function for plotting the Gaussians.) 
+
+\begin{answer}
+
+\end{answer}
+
+\end{question}
+
+%----------------------------------------------
+
+\begin{question}{Posterior}{8}
+In a single graph, plot the posterior distribution of each class $p(C_i|x)$ 
+and show the decision boundary. For convenience, show the probabilities
+in the log domain.
+
+\begin{answer}
+
+\end{answer}
+
+\end{question}
+
+%----------------------------------------------
+
+\begin{question}{Bayesian Estimation}{15}{bonus}
+State the generic case of a Bayesian treatment of the parameters $\theta$ used to model the data, .i.e., $p(\vec X \middle | \theta )$. 
+Which are the advantages of being Bayesian? 
+\\ Derive the estimate of the mean, assuming that the model is a Gaussian distribution with a fixed variance. (Hint: work approximately, complete the square.)
+
+
+\begin{answer}
+\end{answer}
+
+\end{question}
+
+\end{questions}
