@@ -30,7 +30,20 @@ What condition does hold at the optimal decision boundary? When do we decide for
 If both classes have equal prior probabilities $p(C_1) = p(C_2)$ and the same variance $\sigma_1 = \sigma_2$, derive the decision boundary $x^*$ analytically as a function of the two means $\mu_1$ and $\mu_2$.
 
 \begin{answer}
-
+	Gaussian distribution: $\frac{1}{\sqrt{2 \pi \sigma^2 }2} exp(- \frac{x-\mu}{2 \sigma ^2})$
+	
+	Since prior probabilities are equal, the optimal decision boundary is at the point where the distributions are equal.
+	\begin{align*}
+		\frac{1}{\sqrt{2 \pi \sigma^2 }} exp(- \frac{(x-\mu_1)^2}{2 \sigma ^2})
+		&= 		\frac{1}{\sqrt{2 \pi \sigma^2 }} exp(- \frac{(x-\mu_2)^2}{2 \sigma ^2})\\
+		\frac{(x-\mu_1)^2}{2 \sigma ^2}
+		&= \frac{(x-\mu_2)^2}{2 \sigma ^2}\\
+		-2x\mu_1 + \mu_1^2 &= -2x\mu_2 + \mu_2^2\\
+		x &= \frac{\mu_2^2 - \mu_1^2}{2(\mu_2 - \mu_1)}\\
+		x &= \frac{\mu_2 + \mu_1}{2}
+	\end{align*}
+	
+	The symmetry of the Gaussian distribution could be used as well to derive this value.
 \end{answer}
 
 \end{question}
