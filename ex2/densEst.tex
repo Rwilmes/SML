@@ -19,14 +19,14 @@ Derive the ML estimate for the mean and covariance of the \textbf{multivariate} 
 
 \begin{answer}
 
-First we take a look at the optimization function:\\
+%First we take a look at the optimization function:\\
 \begin{align*}
 L(X | \theta ) &= max \log p(X|\theta ) \\
 &= \log \prod_{i=1}^{N} p(x_i|\theta ) \\
 &= \sum_{i=1}^{N} \log p(x_i|\theta ) \\
-&= \sum_{i=1}^{N} \log \left( (2\pi )^{-\frac{K}{2}} |\Sigma |^{-\frac{1}{2}} \exp (-\frac{1}{2}(x_i-\mu )^{T} \Sigma^{-1}(x_i-\mu )) \right) \\
-&= \sum_{i=1}^{N} \left( \log ((2\pi )^{-\frac{K}{2}}\Sigma^{-\frac{1}{2}})-\frac{1}{2} (x_i-\mu )^T \Sigma^{-1}(x_i-\mu) \right) \\
-&= -\frac{N K}{2} \log (2\pi )-\frac{N}{2} \log |\Sigma |-\frac{1}{2}\sum_{i=1}^{N}(x_i-\mu )^T \Sigma^{-1}(x_i-\mu )
+&= \sum_{i=1}^{N} \log ( (2\pi )^{-\frac{K}{2}} |\Sigma |^{-\frac{1}{2}} \exp (-\frac{1}{2} (x_i-\mu )^{T} \Sigma^{-1}(x_i-\mu ))) \\
+&= \sum_{i=1}^{N} ( \log ((2\pi )^{-\frac{K}{2}}\Sigma^{-\frac{1}{2}})-\frac{1}{2} (x_i-\mu )^T \Sigma^{-1}(x_i-\mu) ) \\
+&= -\frac{N K}{2} \log (2\pi )-\frac{N}{2} \log |\Sigma |-\frac{1}{2}\sum_{i=1}^{N}(x_i-\mu )^T \Sigma^{-1}(x_i-\mu )\\
 \end{align*}
 
 1. In order to compute the ML estimate for the mean we take the derivative for $\mu $:
@@ -46,7 +46,7 @@ Setting it to zero gives us the following formular for the mean:
 2. In order to compute the ML estimate for the covariance we take the derivative for $\Sigma$:
 \begin{align*}
 \frac{\delta L}{\delta \Sigma} &= \frac{\delta (-\frac{N}{2} \log |\Sigma |)}{\delta \Sigma} - \frac{1}{2} \frac{\delta (\sum_{i=1}^{N}(x_i-\mu )^T \Sigma^{-1}(x_i-\mu ))}{\delta \Sigma}\\
-&= -\frac{N|\Sigma |\Sigma^{-1}}{2|\Sigma |}-\frac{1}{2} \frac{\sum_{i=1}^{N} \delta (Tr(x_i-\mu )^T \Sigma^{-1}(x_i-\mu )}{\delta \Sigma} \\
+&= -\frac{N|\Sigma |\Sigma^{-1}}{2|\Sigma |}-\frac{1}{2} \frac{\sum_{i=1}^{N} \delta (Tr(x_i-\mu )^T \Sigma^{-1}(x_i-\mu ))}{\delta \Sigma} \\
 &= -\frac{N}{2} \Sigma^{-1} - \frac{1}{2} \frac{\sum_{i=1}^{N} \delta ( Tr\Sigma^{-1}(x_i-\mu )(x_i-\mu )^T)}{\delta \Sigma} \\
 &= -\frac{N}{2} \Sigma^{-1} + \frac{1}{2} \sum_{i=1}^{N} \Sigma^{-1} (x_i-\mu )(x_i-\mu )^T \Sigma^{-1} \\
 &= -\frac{N}{2} + \frac{1}{2} \sum_{i=1}^{N} \Sigma^{-1} (x_i-\mu )(x_i-\mu )^T
@@ -61,7 +61,6 @@ Then we set the derivative to zero:
 \end{align*}
 
 \end{answer}
-{\LARGE TODO}
 \end{question}
 
 

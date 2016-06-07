@@ -19,6 +19,17 @@ Intuitively, indicate which bin size performs the best in and explain why. Knowi
 
 
 \begin{answer}
+Intuitively, the bins of size 0.5 perform the best. They show sufficient details of the distribution without having gaps. However, it is theoretically possible that the underlying distribution looks like the one that results from the histogram of bin size 0.02.
+
+%\begin{figure}
+\centering \includegraphics[width=0.6\linewidth]{dataSets/2-3-a}\label{fig:hist}
+%\caption{Histrograms with various bin sizes}
+%\label{fig:2-3-a}
+%\end{figure}
+
+\lstinputlisting[language=Python, firstline = 4]{dataSets/PythonProject/23a.py}
+
+
 \end{answer}
 
 \end{question}
@@ -30,6 +41,12 @@ Compute the probability density estimate using a Gaussian kernel with $\sigma=0.
 Generate a single plot with the different density estimates and attach it to your solutions. Plot the densities in the interval $x \in [-4,8]$, attach a snippet of your code and comment the results.
 
 \begin{answer}
+	The plot shows that the distribution resulting from the lowest sigma 0.02 has the highest log-likelihood. The function first creates two large arrays that are subtracted from each other to calculate all values of the sum simultaneously and then performs further steps to calculate the probability values, according to the gaussian kernel. In order to calculate the log-likelihood, the distribution can be evaluated at the samples by setting evalat==sample. The logarithm of every element of the resulting vector has to be taken and then summed up.
+	
+	\centering \includegraphics[width=0.6\linewidth]{dataSets/2-3-b}\label{fig:kde}
+
+	
+	\lstinputlisting[language=Python, firstline = 5, lastline = 21]{dataSets/PythonProject/23b.py}
 \end{answer}
 
 \end{question}
@@ -43,6 +60,11 @@ Generate a single plot with the different density estimates and attach it to you
 
 
 \begin{answer}
+	
+		\centering \includegraphics[width=0.6\linewidth]{dataSets/2-3-b}\label{fig:kde}
+		
+		
+		\lstinputlisting[language=Python, firstline = 5, lastline = 21]{dataSets/PythonProject/23c.py}
 \end{answer}
 
 \end{question}
