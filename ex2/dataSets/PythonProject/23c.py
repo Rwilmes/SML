@@ -22,6 +22,7 @@ def calculateknn(evalat, samples, K):
 
 # Load the dataset
 samples = np.array([np.loadtxt(fname='../nonParamTrain.txt')]).transpose()
+testset = np.array([np.loadtxt(fname='../nonParamTest.txt')]).transpose()
 x = np.array([np.arange(-4, 8, 0.1)])
 
 for K in [2, 8, 35]:
@@ -31,10 +32,14 @@ for K in [2, 8, 35]:
     likelihood = calculateknn(samples.transpose(), samples, K)
     likelihood = np.sum(np.log(likelihood))
 
+    # Calculate likelihood of Testset
+    likelihood_t = calculateknn(testset.transpose(), samples, K)
+    likelihood_t = np.sum(np.log(likelihood_t))
+    print likelihood_t
+
     # plot result
     plt.plot(x[0, ...], distribution, label="KNN with K = {} and likelihood {}".format(K, likelihood))
     plt.title("KNN")
 
 plt.legend(fontsize="small", loc="best")
-
 plt.show()
