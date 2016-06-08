@@ -86,7 +86,40 @@ Show the final result and attach a snippet of your code.
 Do not use existing functions, but rather implement the computations by yourself!
 
 \begin{answer}
+The bias of an estimator is the failure/difference between the estimated value and the true value. The formular is:
+\[
+	bias(\Theta )=E_x(\Theta (X)-\Theta )
+\]
 
+Our results for classes 1 and 2 are:
+\begin{align*}
+\mu_1 &= \begin{pmatrix} 
+-0.70386868 \\
+-0.81004153 \\
+\end{pmatrix} \\
+\Sigma_{1, biased} &= \begin{pmatrix}
+9.01953453 & 2.67288083 \\
+2.67288083& 3.59635114 \\
+\end{pmatrix} \\
+\Sigma_{1, unbiased} &= \begin{pmatrix}
+8.98195314 & 2.66174383 \\
+2.66174383 & 3.58136635 \\
+\end{pmatrix} \\ \\
+\mu_2 &= \begin{pmatrix} 
+3.98011241 \\
+3.97915479 \\
+\end{pmatrix} \\
+\Sigma_{2, biased} &= \begin{pmatrix}
+4.17540885 & 0.02761059 \\
+0.02761059 & 2.75299057 \\
+\end{pmatrix} \\
+\Sigma_{2, unbiased} &= \begin{pmatrix}
+4.16992931 & 0.02757436 \\
+0.02757436 & 2.74937772 \\
+\end{pmatrix}
+\end{align*}
+Our python code looks as following:\\
+\lstinputlisting[language=Python, firstline = 1]{dataSets/python_2_2/python-code.py}
 \end{answer}
 
 \end{question}
@@ -99,7 +132,7 @@ Using the unbiased estimates from the previous question, fit a Gaussian distribu
 (Hint: use the contour function for plotting the Gaussians.) 
 
 \begin{answer}
-
+\centering \includegraphics[width=1.0\linewidth]{dataSets/2-2-d}\label{fig:gaussians}
 \end{answer}
 
 \end{question}
@@ -112,7 +145,8 @@ and show the decision boundary. For convenience, show the probabilities
 in the log domain.
 
 \begin{answer}
-
+\centering \includegraphics[width=1.0\linewidth]{dataSets/2-2-e}\label{fig:decisionboundary} \\
+Note: Sorry for the unclear colering. The \emph{jagged} blue line is the decision boundary.
 \end{answer}
 
 \end{question}
@@ -126,6 +160,29 @@ Which are the advantages of being Bayesian?
 
 
 \begin{answer}
+The generic case of the Bayesian treatment with parameters $\theta$ looks as follows:
+\[
+	p(x|X)=\int p(x|\theta )p(\theta | X)d\theta
+\]
+Advantages of being Bayesian is that we can average over all parameters instead of fixing to a limited subset. It is also possible to consider priors to the parameters. The estimated probability indicates how uncertain our predictions of our model are. In order to derive the estimate of the mean we procede as follows. \\
+\\
+We assume the prior distribution of the mean to be given as $\mu \approx N(\mu |\mu_0, \sigma_0$. Then we can estimate:
+
+\begin{align*}
+p(\mu|X) &= \frac{p(X|\mu)p(\mu)}{p(X)} \\
+&= N(\mu|\mu_N,\sigma_n)
+\end{align*}
+This is a gaussian distribution and we can exploit the following formula for the mean:
+\begin{align*}
+\sigma_N^2=\frac{\sigma^2\sigma_0^2}{\sigma^2+N\sigma_0^2}
+\end{align*}
+Therefore the mean can be transformed as, where $\mu'$ is the sampled mean with $\mu'=\frac{1}{N}\sum_{i=1}^{N}x_i$.
+\begin{align*}
+\mu_N &= \frac{1}{\sigma^2+N\sigma_0^2}(\sigma_0^2 \sum_{i=1}^{N}x_i+\sigma^2+\mu_0) \\
+&= \frac{\sigma_0^2N\mu' + \sigma^2\mu_0}{\sigma^2+N\sigma_0^2}
+\end{align*}
+
+
 \end{answer}
 
 \end{question}
