@@ -18,6 +18,17 @@ Define the model parameters and the update rules for your model.
 Specify the E- and M-steps of the algorithm.
 
 \begin{answer}
+	The model parameters are $\mu_1$ ... $\mu_4$, $\sigma_1$...$\sigma_4$ and $\pi_1$ ... $\pi_4$ where $\mu_n$ is the mean, $\sigma_n$ the standard deviation and $\pi_n$ the prior of distribution n.
+	
+	In the E-Step, the posterior distribution of each component is calculated.\\
+	$\alpha_{nj} = p(j|x_n) = \frac{\pi_j \mathcal{N}(x_n|\mu_j,\sigma_j)}{\sum_{i=1}^{4}\pi_i \mathcal{N}(x_n | \mu_i, \sigma_i)}$
+	
+	In the M-Step, the parameters are updated:\\
+	$\mu_{n,new} = \frac{1}{N_j} \sum_{n=1}^{N} \alpha_{nj}x_n$, with $N_j = sum_{n=1}^{N} \alpha_{nj}$\\
+	$\sigma_{j,new}^2 = \frac{1}{N_j} \sum_{n=1}^{N} \alpha_{nj}(x_n-\mu_{j,new})^2$
+	
+	$\pi_{j,new} = \frac{N_j}{N}$
+	
 \end{answer}
 
 \end{question}
