@@ -160,6 +160,29 @@ Which are the advantages of being Bayesian?
 
 
 \begin{answer}
+The generic case of the Bayesian treatment with parameters $\theta$ looks as follows:
+\[
+	p(x|X)=\int p(x|\theta )p(\theta | X)d\theta
+\]
+Advantages of being Bayesian is that we can average over all parameters instead of fixing to a limited subset. It is also possible to consider priors to the parameters. The estimated probability indicates how uncertain our predictions of our model are. In order to derive the estimate of the mean we procede as follows. \\
+\\
+We assume the prior distribution of the mean to be given as $\mu \approx N(\mu |\mu_0, \sigma_0$. Then we can estimate:
+
+\begin{align*}
+p(\mu|X) &= \frac{p(X|\mu)p(\mu)}{p(X)} \\
+&= N(\mu|\mu_N,\sigma_n)
+\end{align*}
+This is a gaussian distribution and we can exploit the following formula for the mean:
+\begin{align*}
+\sigma_N^2=\frac{\sigma^2\sigma_0^2}{\sigma^2+N\sigma_0^2}
+\end{align*}
+Therefore the mean can be transformed as, where $\mu'$ is the sampled mean with $\mu'=\frac{1}{N}\sum_{i=1}^{N}x_i$.
+\begin{align*}
+\mu_N &= \frac{1}{\sigma^2+N\sigma_0^2}(\sigma_0^2 \sum_{i=1}^{N}x_i+\sigma^2+\mu_0) \\
+&= \frac{\sigma_0^2N\mu' + \sigma^2\mu_0}{\sigma^2+N\sigma_0^2}
+\end{align*}
+
+
 \end{answer}
 
 \end{question}
