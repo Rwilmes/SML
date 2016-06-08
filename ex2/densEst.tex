@@ -86,6 +86,40 @@ Show the final result and attach a snippet of your code.
 Do not use existing functions, but rather implement the computations by yourself!
 
 \begin{answer}
+The bias of an estimator is the failure/difference between the estimated value and the true value. The formular is:
+\[
+	bias(\Theta )=E_x(\Theta (X)-\Theta )
+\]
+
+Our results for classes 1 and 2 are:
+\begin{align*}
+\mu_1 &= \begin{pmatrix} 
+-0.70386868 \\
+-0.81004153 \\
+\end{pmatrix} \\
+\Sigma_{1, biased} &= \begin{pmatrix}
+9.01953453 & 2.67288083 \\
+2.67288083& 3.59635114 \\
+\end{pmatrix} \\
+\Sigma_{1, unbiased} &= \begin{pmatrix}
+8.98195314 & 2.66174383 \\
+2.66174383 & 3.58136635 \\
+\end{pmatrix} \\ \\
+\mu_2 &= \begin{pmatrix} 
+3.98011241 \\
+3.97915479 \\
+\end{pmatrix} \\
+\Sigma_{2, biased} &= \begin{pmatrix}
+4.17540885 & 0.02761059 \\
+0.02761059 & 2.75299057 \\
+\end{pmatrix} \\
+\Sigma_{2, unbiased} &= \begin{pmatrix}
+4.16992931 & 0.02757436 \\
+0.02757436 & 2.74937772 \\
+\end{pmatrix}
+\end{align*}
+Our python code looks as following:\\
+\lstinputlisting[language=Python, firstline = 1]{dataSets/python_2_2/python-code.py}
 
 \end{answer}
 
