@@ -1,0 +1,63 @@
+\newif\ifvimbug
+\vimbugfalse
+
+\ifvimbug
+\begin{document}
+\fi
+
+\exercise{Principle Component Analysis}
+In this exercise you will use the \texttt{Iris.txt} dataset. It contains data from three kind of Iris flowers (`Setosa', `Versicolour' and `Virginica') with 4 attributes: sepal length, sepal width, petal length, and petal width. Each row contains a sample while the last attribute is the label. A label of $0$ means that the sample comes from a `Setosa' plant, $1$ from a `Versicolour', and $2$ from `Virginica'.
+(You are allowed to use built-in functions for computing the mean, the covariance, eigevalues and eigenvectors.)
+
+\begin{questions}
+
+%----------------------------------------------
+
+\begin{question}{Data Normalization}{4}
+Normalizing the data is a common practice in machine learning. Normalize the provided dataset such as it has zero mean and unit variance per dimension. Why is normalizing important?
+Attach a snippet of your code. 
+
+\begin{answer}\end{answer}
+
+\end{question}
+
+%----------------------------------------------
+
+\begin{question}{Principle Component Analysis}{8}
+Apply PCA on your normalized dataset and generate a table showing the proportion (percentage) of cumulative variance explained. 
+How many components do you need in order to explain at least $95\%$ of the dataset variance? 
+Attach a snippet of your code.
+
+\begin{answer}\end{answer}
+
+\end{question}
+
+%----------------------------------------------
+
+\begin{question}{Low Dimensional Space}{6}
+Using as many components as needed to explain $95\%$ of the dataset variance, generate a scatter plot of the lower-dimensional projection of the data. Use different colors or symbols for data points from different classes. 
+What do you observe? Attach a snippet of your code.
+
+\begin{answer}\end{answer}
+
+\end{question}
+
+%----------------------------------------------
+
+\begin{question}{Projection to the Original Space}{6}
+Reconstruct the original dataset by using different number of principle components. Using the normalized root mean square error (NRMSE) as a metric, create a table with the error per input versus the amount of principle components used (i.e., with five columns: first for the number of components, remainder for the input NRMSE).
+Attach a snippet of your code.
+(Remember that in the first step you normalized the data.)
+
+\begin{answer}\end{answer}
+\end{question}
+
+\begin{question}[bonus]{Kernel PCA}{15}
+Throughout this class we have seen that PCA is an easy and efficient way to reduce the dimensionality of some data. However, it is able to detect only linearly dependences among data points. A more sophisticated extension to PCA, \emph{Kernel PCA}, is able to overcome this limitation. 
+This question asks you to deepen this topic by conducting some research by yourself: explain what Kernel PCA is, how it works and what are its main limitations. Be as much as concise (but clear) as possible.
+
+\begin{answer}\end{answer}
+
+\end{question}
+
+\end{questions}
