@@ -31,7 +31,12 @@ Attach snippets of your code showing how you generate polynomial features and ho
 \begin{question}{Gaussian Features}{4}
 Now use Gaussian features. Each feature is a Gaussian distribution were the means are distributed linearly in $x \in[0,2]$ and the variance is set to $\sigma^2=0.02$. The features have to be normalized, i.e., they have to sum to one at every state. Using $N=20$ features generate a plot with the activation of each feature over time (i.e., plot the matrix $\Phi$). Attach a snippet of your code showing how to compute Gaussian features.
 
-\begin{answer}\end{answer}
+\begin{answer}
+\centering \includegraphics[width=1.0\linewidth]{img/31d}\label{fig:gaussians}
+
+\lstinputlisting[language=Python, firstline = 0]{../Code/31d.py}
+
+\end{answer}
 
 \end{question}
 
