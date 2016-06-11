@@ -22,4 +22,6 @@ for i in space:
 	y = normalize(y)	
 	plt.plot(x,y)
 
+plt.xlabel('x')
+plt.ylabel('p(x)')
 plt.show()
