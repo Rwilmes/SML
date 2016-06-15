@@ -17,7 +17,13 @@ In this exercise you will use the \texttt{Iris.txt} dataset. It contains data fr
 Normalizing the data is a common practice in machine learning. Normalize the provided dataset such as it has zero mean and unit variance per dimension. Why is normalizing important?
 Attach a snippet of your code. 
 
-\begin{answer}\end{answer}
+\begin{answer}
+Subtracting the mean of the dataset is important, because otherwise the results of the Principal component analysis would be meaningless. Normalizing for unit variance prevents variables with a large variance to influence the PCA too significantly.
+
+The normalization is done by the following function:
+\lstinputlisting[language=Python, firstline=11, lastline = 21]{../Code/33a.py}
+	
+\end{answer}
 
 \end{question}
 
