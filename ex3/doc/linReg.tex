@@ -22,7 +22,42 @@ Using what you think is the best learned model from the previous point, show in 
 Attach snippets of your code showing how you generate polynomial features and how you fit the model.
 
 
-\begin{answer}\end{answer}
+\begin{answer}
+In order to create polynomial features of degree n, the function exprepeat is used. It calculates the matrix $X$, based on the given vector
+$x = (\begin{matrix}
+x_k\\
+\vdots\\
+x_1\\
+x_0\\
+\end{matrix})$ as 
+$X = (
+\begin{matrix*}
+	x_0^n & x_1^n & \hdots & x_k^n\\
+	\vdots & \ddots & \hdots & \vdots\\
+	x_0 & x_1 & \hdots & x_k\\
+	1 & 1 & \hdots & 1
+\end{matrix*}
+)$
+\lstinputlisting[language=Python, firstline= 5, lastline = 15]{../Code/31a.py}
+
+The polynomial features are then used in polyregress to calculate the coefficients of the polynomial of degree n, according to the formula in the lecture: $w=(XX^T)^{-1}Xy$
+
+\lstinputlisting[language=Python, firstline= 17, lastline = 24]{../Code/31a.py}
+
+Based on these results, the polynomial is first evaluated at all available data points, using $y_{fit} = w^TX$. The RMSE is than calculated as $\sqrt{\sum_{n=0}^{N-1}\frac{ (y_{fit,n}-y_n)^2}{N}}$, where $N$ is the number of samples in the dataset. This is done separately for the test and training set.
+
+\lstinputlisting[language=Python, firstline= 26, lastline = 31]{../Code/31a.py}
+
+The resulting RMSE for train and test data are plotted in the follwing figure.
+
+\centering \includegraphics[width=0.7\linewidth]{img/31a}
+
+As the plot shows, the RMSE of the training set is always lower than the one of the test set. This is not surprising, since the regression is trying to minimize the error for the training set. The lowest RMSE for the test set is achieved by using a polynomial of degree 17. This polynomial is shown in the following figure.
+
+\centering \includegraphics[width=0.7\linewidth]{img/31a2}
+
+	
+\end{answer}
 
 \end{question}
 
