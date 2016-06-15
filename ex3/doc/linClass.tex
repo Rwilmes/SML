@@ -17,7 +17,12 @@ In this exercise, you will use the dataset \texttt{ldaData.txt}, containing $150
 Explain the difference between discriminative and generative models and give an example for each case.
 Which model category is generally easier to learn and why?
  
-\begin{answer}\end{answer}
+\begin{answer}
+Discriminative models don't directly calculate an underlying distribution. Instead, they use discriminant functions and the resulting class depends on the result of this function on a given point $x$. Discriminative models are easier to learn than generative models, because they depend less on details of a given distribution.
+
+Generative models calculate the distribution of each class. This makes them more general, but they require more calculation steps.
+	
+\end{answer}
 
 \end{question}
 
