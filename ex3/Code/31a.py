@@ -20,8 +20,8 @@ def exprepeat(x_in, n):
 def polyregress(x,y,degree):
     X_p = exprepeat(x, degree)
 
-    w = np.linalg.inv(np.dot(X_p, X_p.transpose()))
-    w = np.array([np.dot(np.dot(w, X_p), y)])
+    w = np.dot(np.linalg.inv(np.dot(X_p, X_p.transpose())),X_p);
+    w = np.array([np.dot(w, y)])
 
     return w, X_p
 
