@@ -3,23 +3,33 @@ import matplotlib.mlab as mlab
 import numpy as np
 import math
 
-def normalize(y):
-	total = 0
-	for v in y:
-		total += v	
-	for i in range(0, len(y)):
-		y[i] = float(y[i])/total
-	return y
+# normalizes all ys over x
+def normalize(ys, x):
+	for i in range(0, len(x)):
+		total = 0
+		for y in ys:
+			total += y[i]
+
+		for y in ys:
+			y[i] = y[i]/total
+
+	return ys
 
 space = np.linspace(0, 2, num=20)
+
+ys = []
+x = np.linspace(0, 2, 1000)
 
 for i in space:
 	mu = i
 	variance = 0.02
 	sigma = math.sqrt(variance)	
-	x = np.linspace(0, 2, 100)
 	y = mlab.normpdf(x, mu, sigma)
-	y = normalize(y)	
+	ys.append(y)
+
+ys = normalize(ys, x)
+
+for y in ys:
 	plt.plot(x,y)
 
 plt.xlabel('x')
