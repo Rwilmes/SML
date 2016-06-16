@@ -3,36 +3,35 @@ import matplotlib.mlab as mlab
 import numpy as np
 import math
 
-# normalizes all ys over x
-def normalize(ys, x):
-	for i in range(0, len(x)):
+def plot_phi(phi, x):
+	for i in range(0, len(phi)):
+		plt.plot(x, phi[i])
+	plt.show()
+
+def normalize(matrix):
+	for i in range(0, len(matrix[0])):
 		total = 0
-		for y in ys:
-			total += y[i]
+		column = matrix[:,i]
+		for j in range(0, len(column)):
+			total += column[j]
+		for j in range(0, len(column)):
+			column[j] = column[j]/total
+	return matrix
 
-		for y in ys:
-			y[i] = y[i]/total
+def get_phi_gaussians(space, x, var):
+	matrix = np.zeros((len(space),len(x)))
+	
+	# fill matrix
+	for i in range(0, len(matrix)):
+		matrix[i] = x-space[i]
+	matrix = np.exp(-np.power(matrix,2)/(2*var))
+	return matrix
 
-	return ys
-
-def get_gaussians(space, x, var):
-	ys = []
-	for i in space:
-		mu = i
-		sigma = math.sqrt(var)	
-		y = mlab.normpdf(x, mu, sigma)
-		ys.append(y)
-	return ys
+var = 0.02
 
 space = np.linspace(0, 2, num=20)
-x = np.linspace(0, 2, 1000)
+x = np.linspace(0, 2, num=201)
 
-ys = get_gaussians(space, x, 0.02)
-ys = normalize(ys, x)
-
-for y in ys:
-	plt.plot(x,y)
-
-plt.xlabel('x')
-plt.ylabel('p(x)')
-plt.show()
+matrix = get_phi_gaussians(space, x, var)
+matrix = normalize(matrix)
+plot_phi(matrix, x)
