@@ -101,7 +101,23 @@ Attach a snippet of your code.
 Throughout this class we have seen that PCA is an easy and efficient way to reduce the dimensionality of some data. However, it is able to detect only linearly dependences among data points. A more sophisticated extension to PCA, \emph{Kernel PCA}, is able to overcome this limitation. 
 This question asks you to deepen this topic by conducting some research by yourself: explain what Kernel PCA is, how it works and what are its main limitations. Be as much as concise (but clear) as possible.
 
-\begin{answer}\end{answer}
+\begin{answer}
+The PCA decorrelates the features given in a dataset by diagonalizing the covariance matrix, given by 
+\[S = \frac{1}{N} \sum_{n=1}^{N}x_n x_n^T\]
+Unfortunately, this only works well, if the relation between the feature is linear.
+
+To circumvent this problem, a transformation $\Phi (x)$ can be used to project the samples into a feature space. In an ideal feature space, the relations between two different features are only linear. Consider an example, where two features, $x_{(1)}$ and $x_{(2)}$ have a quadratic relationship: $x_{(2)} = 5 \cdot x_{(1)}^2$. A transformation $\Phi(x) = (\begin{matrix}
+x_{(1)}^2\\
+x_{(2)}
+\end{matrix}) $ would make this relationship linear and therefore PCA applicable.
+
+This means, that in Kernel PCA, the covariance matrix of the feature space 
+\[S'=\frac{1}{N} \sum_{n=1}^{N} \Phi(x_n) \Phi(x_n)^T\]
+is diagonalized by solving its eigenvector equation \[S'v_i = \lambda_i v_i\]
+
+However, transforming every sample into the feature space by applying $\Phi(x)$ is a very computation intensive operation. Therefore, the goal is to solve this eigenvector problem without having to work in the feature space.  
+ 
+\end{answer}
 
 \end{question}
 
