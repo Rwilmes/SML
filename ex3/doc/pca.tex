@@ -34,7 +34,24 @@ Apply PCA on your normalized dataset and generate a table showing the proportion
 How many components do you need in order to explain at least $95\%$ of the dataset variance? 
 Attach a snippet of your code.
 
-\begin{answer}\end{answer}
+\begin{answer}
+The Principal Component Analysis of a normalized dataset X can be computed using the following snippet:
+
+\lstinputlisting[language=Python, firstline=25, lastline=28]{../Code/33a.py}
+
+
+
+The cumulative explained variance of these Eigenvalues is 
+\[
+\begin{array}{c|c|c|c}
+\lambda_1& \lambda_2 & \lambda_3 & \lambda_4 \\ \hline
+0.72770452 & 0.95800975 & 0.99484807 & 1.
+\end{array} 
+\]
+
+Therefore, in order to explain more than 95\% variance, 2 Eigenvectors are needed.
+	
+\end{answer}
 
 \end{question}
 
@@ -44,7 +61,19 @@ Attach a snippet of your code.
 Using as many components as needed to explain $95\%$ of the dataset variance, generate a scatter plot of the lower-dimensional projection of the data. Use different colors or symbols for data points from different classes. 
 What do you observe? Attach a snippet of your code.
 
-\begin{answer}\end{answer}
+\begin{answer}
+The first step is to project the data. This is done by a simple dot-multiplication. In the snippet, the dataset is transposed because of the order of the data in the given file. The result is transposed to restore that order:
+\lstinputlisting[language=Python, firstline=64, lastline=65]{../Code/33a.py}
+
+
+The data is plotted using the following snippet, where C0, C1 and C2 indicate the samples that belong to the corresponding class:
+\lstinputlisting[language=Python, firstline=67, lastline=74]{../Code/33a.py}
+
+\includegraphics[width=1.0\linewidth]{./img/33c.png}
+
+From this perspective, the plant Versicolour is easily separable from the other two plants. Setosa and Virginica are also separated, but they overlap.
+
+\end{answer}
 
 \end{question}
 
@@ -55,7 +84,17 @@ Reconstruct the original dataset by using different number of principle componen
 Attach a snippet of your code.
 (Remember that in the first step you normalized the data.)
 
-\begin{answer}\end{answer}
+
+\begin{answer}
+
+
+\[\begin{array}{lcccc}
+	Components & 1 & 2 & 3 & 4 \\ 
+	NRMSE & a & b & c & d
+\end{array} 
+\]
+	
+\end{answer}
 \end{question}
 
 \begin{question}[bonus]{Kernel PCA}{15}

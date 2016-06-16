@@ -46,7 +46,7 @@ The polynomial features are then used in polyregress to calculate the coefficien
 
 Based on these results, the polynomial is first evaluated at all available data points, using $y_{fit} = w^TX$. The RMSE is than calculated as $\sqrt{\sum_{n=0}^{N-1}\frac{ (y_{fit,n}-y_n)^2}{N}}$, where $N$ is the number of samples in the dataset. This is done separately for the test and training set.
 
-\lstinputlisting[language=Python, firstline= 26, lastline = 31]{../Code/31a.py}
+\lstinputlisting[language=Python, firstline= 25, lastline = 28]{../Code/31a.py}
 
 The resulting RMSE for train and test data are plotted in the follwing figure.
 
