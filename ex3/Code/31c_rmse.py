@@ -38,6 +38,11 @@ def get_phi_gaussians(space, x, var):
 	matrix = np.exp(-np.power(matrix,2)/(2*var))
 	return matrix
 
+def calc_rmse(truth, estimate):
+	return np.sqrt(((estimate - truth) ** 2).mean())
+
+
+
 data = np.loadtxt("../dataSets/linRegData.txt")
 trainsize = 20
 var = 0.02
@@ -48,13 +53,11 @@ x_train = data[0:trainsize,0]
 y_test = data[trainsize:,1]
 y_train = data[0:trainsize,1]
 
-# plot data points
-plt.plot(x_train, y_train, 'o')
-plt.plot(x_test, y_test, 'x')
-
+rmse_x = []
+rmse_y = []
 
 # calc curves and plot them
-for degree in range(15, 16):
+for degree in range(15, 40):
 	space = np.linspace(0, 2, num=degree)
 	phi = normalize(get_phi_gaussians(space, x_train, var))
 	w = np.dot(np.dot(np.linalg.inv(np.dot(phi, phi.transpose())), phi), y_train)
@@ -63,12 +66,12 @@ for degree in range(15, 16):
 
 	# fit curve
 	ye_test = np.dot(w, X).transpose()
+	rmse = calc_rmse(y_test, ye_test)
+	rmse_x.append(degree)
+	rmse_y.append(rmse)
 
-	# sort points for linespoint plot
-	x_sorted, y_sorted = get_plot_points(x_test, ye_test)
 
-	# plot
-	plt.plot(x_sorted, y_sorted)
-
+plt.plot(rmse_x, rmse_y)
+plt.yscale('log')
 plt.show()
 
