@@ -60,7 +60,7 @@ rmse_y = []
 for degree in range(15, 40):
 	space = np.linspace(0, 2, num=degree)
 	phi = normalize(get_phi_gaussians(space, x_train, var))
-	w = np.dot(np.dot(np.linalg.inv(np.dot(phi, phi.transpose())), phi), y_train)
+	w = np.dot(np.dot(np.linalg.inv(np.dot(phi, phi.transpose()) + math.exp(-6)*np.eye(len(phi))), phi), y_train)
 	X = get_phi_gaussians(space, x_test, var)
 
 
@@ -72,6 +72,6 @@ for degree in range(15, 40):
 
 
 plt.plot(rmse_x, rmse_y)
-plt.yscale('log')
+#plt.yscale('log')
 plt.show()
 
