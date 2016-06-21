@@ -57,7 +57,7 @@ rmse_x = []
 rmse_y = []
 
 # calc curves and plot them
-for degree in range(15, 40):
+for degree in range(1, 40):
 	space = np.linspace(0, 2, num=degree)
 	phi = normalize(get_phi_gaussians(space, x_train, var))
 	w = np.dot(np.dot(np.linalg.inv(np.dot(phi, phi.transpose()) + math.exp(-6)*np.eye(len(phi))), phi), y_train)

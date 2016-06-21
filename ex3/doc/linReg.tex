@@ -90,7 +90,18 @@ Repeat the process of fitting the model using the Gaussian features from the pre
 Using Bayesian linear regression and polynomial features of 12th degree, plot the mean and the standard deviation of the predictive distribution for each case, using the first $N={10, 12, 16, 20, 50, 150}$ data points.
 Discuss how the model uncertainty change with the amount of data points and the problem of overfitting with Bayesian linear regression. Use a prior $\sigma^2=0.0025$.
 
-\begin{answer}\end{answer}
+\begin{answer}
+The uncertainty is getting lower the more data points we use for learning. This can be seen especially in the plot for $N=10$, where the area between data points is very uncertain, due to the lack of available information during learning. However, the more points we have the less uncertain we are about our prediction. Regarding overfitting the bayesian linear regression performs better than MLE, because instead of optimizing we are integrating over all possible choices.
+
+\centering \includegraphics[width=1.0\linewidth]{img/31d_10} \\
+\centering \includegraphics[width=1.0\linewidth]{img/31d_12} \\
+\centering \includegraphics[width=1.0\linewidth]{img/31d_16} \\
+\centering \includegraphics[width=1.0\linewidth]{img/31d_20} \\
+\centering \includegraphics[width=1.0\linewidth]{img/31d_50} \\
+\centering \includegraphics[width=1.0\linewidth]{img/31d_150}
+
+
+\end{answer}
 \end{question}
 
 %----------------------------------------------
