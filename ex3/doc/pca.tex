@@ -86,16 +86,20 @@ Attach a snippet of your code.
 
 
 \begin{answer}
+Since the data has been normalized in the beginning, the NRMSE is calculated automatically by projecting the data into the original space and then calculating the RMSE. This is done by the following script:
 
+\lstinputlisting[language=Python, firstline=76, lastline=91]{../Code/33a.py}
+
+The result is shown in the following table. As expected, the value drops significantly, for a high number of components.
 
 \[\begin{array}{lcccc}
 	Components & 1 & 2 & 3 & 4 \\ 
-	NRMSE & a & b & c & d
+	NRMSE & $1.043$ & $0.4098$ & $0.1435$ & $3.002\cdot10^{-16}$ 
 \end{array} 
 \]
 	
 \end{answer}
-\end{question}
+ \end{question}
 
 \begin{question}[bonus]{Kernel PCA}{15}
 Throughout this class we have seen that PCA is an easy and efficient way to reduce the dimensionality of some data. However, it is able to detect only linearly dependences among data points. A more sophisticated extension to PCA, \emph{Kernel PCA}, is able to overcome this limitation. 
@@ -115,7 +119,7 @@ This means, that in Kernel PCA, the covariance matrix of the feature space
 \[S'=\frac{1}{N} \sum_{n=1}^{N} \Phi(x_n) \Phi(x_n)^T\]
 is diagonalized by solving its eigenvector equation \[S'v_i = \lambda_i v_i\]
 
-However, transforming every sample into the feature space by applying $\Phi(x)$ is a very computation intensive operation. Therefore, the goal is to solve this eigenvector problem without having to work in the feature space.  
+However, transforming every sample into the feature space by applying $\Phi(x)$ is can be a very computation intensive operation. Therefore, the goal is to solve this eigenvector problem without having to work in the feature space. This is avoided, using the kernel trick. Instead of calculating $\Phi(x_n)$ and $\Phi(x_m)$ explicitly, it is enough to calculate $k(x_n, x_m) = \Phi(x_n)\Phi(x_m)$. Typically, this is significantly faster, since $\Phi(x)$ can have a very high dimensionality.
  
 \end{answer}
 

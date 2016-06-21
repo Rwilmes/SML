@@ -80,10 +80,8 @@ for i in np.arange(1, 5):
 
     # Project features back to original feature space
     data_restored = np.linalg.solve(evec.T, data_restored.T).T
-    #data_restored = unnormalize(data_restored, m, dev)
 
     # Calculate RMSE
-    #e = np.subtract(unnormalize(data, m, dev), data_restored)
     e = np.subtract(data, data_restored)
     e **= 2
     e = np.sum(e, axis=1)
