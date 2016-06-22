@@ -8,7 +8,7 @@ def plot_phi(phi, x):
 		plt.plot(x, phi[i])
 	plt.show()
 
-# normalizes rows
+# normalizes columns
 def normalize(matrix):
 	for i in range(0, len(matrix[0])):
 		matrix[:,i] = matrix[:,i]/np.sum(matrix[:,i])
