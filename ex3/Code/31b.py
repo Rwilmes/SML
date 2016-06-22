@@ -10,8 +10,8 @@ def plot_phi(phi, x):
 
 # normalizes rows
 def normalize(matrix):
-	for i in range(0, len(matrix)):
-		matrix[i] = matrix[i]/np.sum(matrix[i])
+	for i in range(0, len(matrix[0])):
+		matrix[:,i] = matrix[:,i]/np.sum(matrix[:,i])
 	return matrix
 
 # creates phi matrix with gaussians
@@ -22,7 +22,7 @@ def get_phi_gaussians(space, x, var):
 	for i in range(0, len(matrix)):
 		matrix[i] = matrix[i] - space
 	matrix = np.exp(-np.power(matrix, 2)/(2*var))
-	return matrix
+	return matrix.T
 
 var = 0.02
 
@@ -30,5 +30,5 @@ space = np.linspace(0, 2, num=20)
 x = np.linspace(0, 2, num=201)
 
 matrix = get_phi_gaussians(space, x, var)
-matrix = normalize(matrix).T
+matrix = normalize(matrix)
 plot_phi(matrix, x)
