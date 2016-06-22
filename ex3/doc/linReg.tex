@@ -93,7 +93,8 @@ Using Bayesian linear regression and polynomial features of 12th degree, plot th
 Discuss how the model uncertainty change with the amount of data points and the problem of overfitting with Bayesian linear regression. Use a prior $\sigma^2=0.0025$.
 
 \begin{answer}
-The uncertainty is getting lower the more data points we use for learning. This can be seen especially in the plot for $N=10$, where the area between data points is very uncertain, due to the lack of available information. However, the more points we have the less uncertain we are about our prediction. Regarding overfitting the bayesian linear regression performs better than MLE, because instead of optimizing we are integrating over all possible choices.
+The uncertainty is getting lower the more data points we use for learning. This can be seen especially in the plot for $N=10$, where the area between data points is very uncertain, due to the lack of available information. However, the more points we have the less uncertain we are about our prediction. For infinite data-points the uncertainty would converge to zero.\\
+Regarding overfitting the bayesian linear regression performs better than MLE, because instead of optimizing (which leads to a single solution) we are averaging over many different solutions, which will typically lead to better predictions.
 
 \centering \includegraphics[width=1.0\linewidth]{img/31d_10} \\
 \centering \includegraphics[width=1.0\linewidth]{img/31d_12} \\
@@ -111,7 +112,9 @@ The uncertainty is getting lower the more data points we use for learning. This 
 \begin{question}{Bayesian Linear Regression, Continued}{5}
 How can we further reduce the uncertainty? Is it always a good practice?
 
-\begin{answer}\end{answer}
+\begin{answer}
+In order to further reduce uncertainty we can use more data points. This is not always good practice, because using up to all data points defeats the purpose of a model for prediction.
+\end{answer}
 \end{question}
 
 %----------------------------------------------
