@@ -27,7 +27,7 @@ def get_phi_gaussians(space, x, var):
 var = 0.02
 
 space = np.linspace(0, 2, num=20)
-x = np.linspace(0, 2, num=201)
+x = np.linspace(0, 2, num=200)
 
 matrix = get_phi_gaussians(space, x, var)
 matrix = normalize(matrix)
