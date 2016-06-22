@@ -69,7 +69,7 @@ Now use Gaussian features. Each feature is a Gaussian distribution were the mean
 \begin{answer}
 \centering \includegraphics[width=1.0\linewidth]{img/31b}\label{fig:gaussians}
 
-\lstinputlisting[language=Python, firstline = 12]{../Code/31b.py}
+\lstinputlisting[language=Python, firstline = 11]{../Code/31b.py}
 
 \end{answer}
 
@@ -81,6 +81,8 @@ Now use Gaussian features. Each feature is a Gaussian distribution were the mean
 Repeat the process of fitting the model using the Gaussian features from the previous question. Compare the RMSE on the testing data using $15 \ldots 40$ basis functions and plot the RMSE. Which number of basis functions has the best performance and what is the best RMSE? Use a Ridge coefficient of $\lambda=10^{-6}$.
 
 \begin{answer}\end{answer}
+The best RMSE is $0.015431$ using 29 basis functions. \\
+\centering \includegraphics[width=1.0\linewidth]{img/31c_rmse}\label{fig:gaussians_rmse}
 
 \end{question}
 
@@ -91,7 +93,7 @@ Using Bayesian linear regression and polynomial features of 12th degree, plot th
 Discuss how the model uncertainty change with the amount of data points and the problem of overfitting with Bayesian linear regression. Use a prior $\sigma^2=0.0025$.
 
 \begin{answer}
-The uncertainty is getting lower the more data points we use for learning. This can be seen especially in the plot for $N=10$, where the area between data points is very uncertain, due to the lack of available information during learning. However, the more points we have the less uncertain we are about our prediction. Regarding overfitting the bayesian linear regression performs better than MLE, because instead of optimizing we are integrating over all possible choices.
+The uncertainty is getting lower the more data points we use for learning. This can be seen especially in the plot for $N=10$, where the area between data points is very uncertain, due to the lack of available information. However, the more points we have the less uncertain we are about our prediction. Regarding overfitting the bayesian linear regression performs better than MLE, because instead of optimizing we are integrating over all possible choices.
 
 \centering \includegraphics[width=1.0\linewidth]{img/31d_10} \\
 \centering \includegraphics[width=1.0\linewidth]{img/31d_12} \\
@@ -118,6 +120,11 @@ How can we further reduce the uncertainty? Is it always a good practice?
 So far, we have split our dataset in two sets: training data and testing data. Cross-validation is a more sophisticated approach for model selection. Discuss it and its variants, pointing out their pro and cons.
 \end{question}
 
-\begin{answer}\end{answer}
+\begin{answer}
+When the original dataset is simply split into training- and test-set has the drawback, that evaluations based on this approach tend to reflect the particular characteristics of the splits. One may use statistical sampling to get better results. There are two cross-validation strategies:\\
+\textbf{k-fold cross-validation}: The data is divided into $k$ different chunks (of same size), which are each used once as the learning-set in $k$ runs. Validation takes place on the respective training-sets in each run.\\
+This method can be improved by choosing the $k$ chunks in a way, that data-points are similarly distributed in all chunks. This is called \textbf{stratified k-fold cross-validation} and reduces the predictions variance. \\
+\textbf{Leave-one-out validation}: The data is divided in $N$ chunks of data, one for each data-point. This results in $N$ runs, which can lead to severe runtimes. In addition a stratified version is not possible. Furthermore there are extreme cases, in which the leave-one-out validation can give faulty results.
+\end{answer}
 
 \end{questions}
