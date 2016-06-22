@@ -40,9 +40,9 @@ $X = (
 )$
 \lstinputlisting[language=Python, firstline= 5, lastline = 15]{../Code/31a.py}
 
-The polynomial features are then used in polyregress to calculate the coefficients of the polynomial of degree n, according to the formula in the lecture: $w=(XX^T)^{-1}Xy$
+The polynomial features are then used in polyregress to calculate the coefficients of the polynomial of degree n, incorporating the ridge coefficient $\lambda = 10^{-6}$ according to the formula in the lecture: $w=(XX^T+ \lambda \Sigma)^{-1}Xy$.
 
-\lstinputlisting[language=Python, firstline= 17, lastline = 24]{../Code/31a.py}
+\lstinputlisting[language=Python, firstline= 17, lastline = 24]{../Code/31a_ridge.py}
 
 Based on these results, the polynomial is first evaluated at all available data points, using $y_{fit} = w^TX$. The RMSE is than calculated as $\sqrt{\sum_{n=0}^{N-1}\frac{ (y_{fit,n}-y_n)^2}{N}}$, where $N$ is the number of samples in the dataset. This is done separately for the test and training set.
 
@@ -50,7 +50,7 @@ Based on these results, the polynomial is first evaluated at all available data 
 
 The resulting RMSE for train and test data are plotted in the follwing figure.
 
-\centering \includegraphics[width=0.7\linewidth]{img/31a}
+\centering \includegraphics[width=0.7\linewidth]{img/31a_ridge}
 
 As the plot shows, the RMSE of the training set is always lower than the one of the test set. This is not surprising, since the regression is trying to minimize the error for the training set. The lowest RMSE for the test set is achieved by using a polynomial of degree 17. This polynomial is shown in the following figure.
 
