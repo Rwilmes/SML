@@ -29,6 +29,6 @@ var = 0.02
 space = np.linspace(0, 2, num=20)
 x = np.linspace(0, 2, num=200)
 
-matrix = get_phi_gaussians(space, x, var)
-matrix = normalize(matrix)
-plot_phi(matrix, x)
+phi = get_phi_gaussians(space, x, var)
+phi = normalize(phi)
+plot_phi(phi, x)
