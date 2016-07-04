@@ -1,0 +1,38 @@
+\newif\ifvimbug
+\vimbugfalse
+
+\ifvimbug
+\begin{document}
+\fi
+
+\exercise{Neural Networks}
+In this exercise, you will use the dataset \texttt{mnist\_small}, divided into four files.
+
+\begin{questions}
+
+%----------------------------------------------
+
+\begin{question}{Multi-layer Perceptron}{25}
+Implement a neural network with one hidden layer and train it using backpropagation on the provided dataset. Choose your loss function, activation function and optimizer, briefly explaining your choices. You can use off-the-shelf optimizers, loss and activation functions, but you have to write the network structure and the backpropagation algorithm by yourself. You are also free to choose a suitable number of neurons for the hidden layer.
+
+Plot the error during the training process against the number of iterations and attach snippets of your code. 
+
+\begin{answer}\end{answer}
+
+\end{question}
+
+%----------------------------------------------
+
+\begin{question}[bonus]{Deep Learning}{15}
+In recent years, deep neural networks have become one of the most used tools in machine learning. 
+Highlight the qualitative differences between classical neural networks and deep networks. Which limitations of classical NN does deep learning overcome?
+Give an intuition of the innovations introduced in deep learning compared to traditional NN.
+(Hint: have a look \href{http://arxiv.org/abs/1206.5538}{at this paper} and \href{https://plus.google.com/100849856540000067209/posts/9BDtGwCDL7D}{at this Google+ discussion}.)
+
+\begin{answer}\end{answer}
+
+\end{question}
+
+%----------------------------------------------
+
+\end{questions}

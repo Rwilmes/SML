@@ -1,0 +1,82 @@
+%=========================================================
+
+% Here you can choose to compile with or without solutions.
+% However, this definition is ignored if you use any
+% command from the `Makefile`.
+%\providecommand{\withSol}{\iftrue}
+
+%=========================================================
+
+\documentclass
+[twoside,english,colorbacktitle,accentcolor=tud9c]
+{tudexercise}
+
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage{mathtools}
+\usepackage{dsfont}
+\usepackage{units}
+\usepackage{subfigure}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{fancyref}
+\usepackage{parskip}
+\usepackage[ngerman,english]{babel}
+
+%=========================================================
+
+\def\homework{4}
+\def\homeworkVer{1}
+\def\homeworkSolVer{1}
+
+%=========================================================
+
+\ifcsname withSol\endcsname\else
+  \expandafter\let\csname withSol\expandafter\endcsname
+                  \csname iffalse\endcsname
+\fi
+
+\withSol
+	\usepackage[solutions]{iasHomework}
+\else
+	\usepackage{iasHomework}
+\fi
+
+%=========================================================
+
+\hwtitle{Machine Learning}
+{Summer Semester 2016}
+{Prof. Dr. J. Peters, F. Veiga, S. Parisi}
+
+\begin{document}
+
+%=========================================================
+
+\maketitle
+
+\begin{examheader}
+	\textmb{Machine Learning - Homework \arabic{section}}
+	\examheaderdefault 
+\end{examheader} 
+
+\deadline{Friday, 8 July 2016, 16:00}
+
+\student{}{}
+
+\student{}{}
+
+%=========================================================
+
+\input{svm.tex}
+
+\input{nn.tex}
+
+%=========================================================
+
+\end{document}
+

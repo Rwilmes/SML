@@ -1,0 +1,54 @@
+\newif\ifvimbug
+\vimbugfalse
+
+\ifvimbug
+\begin{document}
+\fi
+
+\exercise{Support Vector Machines}
+In this exercise, you will use the dataset \texttt{iris-pca.txt}. It is the same dataset used for Homework 3, but the data has been pre-processed with PCA and only two kind of flowers (`Setosa' and `Virginica') have been kept, along with their two principal components. Each row contains a sample while the last attribute is the label ($0$ means that the sample comes from a `Setosa' plant, $2$ from `Virginica').
+(You are allowed to use built-in functions for computing the mean, the covariance, eigenvalues, eigenvectors and for quadratic programming.)
+\begin{questions}
+
+%----------------------------------------------
+
+\begin{question}{Definition}{3}
+Briefly define SVMs. What is their advantage w.r.t. other linear approaches we discussed this semester? 
+
+\begin{answer}\end{answer}
+\end{question}
+
+%----------------------------------------------
+
+\begin{question}{Quadratic Programming}{5}
+Formalize SVMs as a constrained optimization problem.
+
+\begin{answer}\end{answer}
+\end{question}
+
+%----------------------------------------------
+
+\begin{question}{Slack Variables}{5}
+Explain the concept behind slack variables and reformulate the optimization problem accordingly. Without showing all the intermediate steps, write down the final solution of the problem.
+
+\begin{answer}\end{answer}
+\end{question}
+
+%----------------------------------------------
+
+\begin{question}{Kernel Trick}{4}
+Explain the kernel trick and why it is particularly convenient in SVMs.
+
+\begin{answer}\end{answer}
+\end{question}
+
+%----------------------------------------------
+
+\begin{question}{Decision Boundary}{8}
+Learn a SVM to classify the data in \texttt{iris-pca.txt}. Choose your kernel. Create a plot showing the data and the decision boundary. Attach a snippet of your code.
+
+\begin{answer}\end{answer}
+
+\end{question}
+
+\end{questions}
