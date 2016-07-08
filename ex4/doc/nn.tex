@@ -17,7 +17,18 @@ Implement a neural network with one hidden layer and train it using backpropagat
 
 Plot the error during the training process against the number of iterations and attach snippets of your code. 
 
-\begin{answer}\end{answer}
+
+\begin{answer}
+	As loss funtion, we use the mean squared error $\frac{1}{N }\sum_{n=1}^N y_{in,n} - y_{predict,n}$. For the activation function of the first layer, the sigmoid function $\varphi_1 = \frac{1}{1+e^{-Z}}$ is used, the activation function of the output layer is linear, $\varphi_2 = WX$, where $X$ is the matrix of all input vectors and Z the weighted and summed outputs of the hidden layer. As an optimizer, we use a simple gradient descent alogrithm
+	
+\lstinputlisting[language=Python, firstline=27, lastline=60]{../Code/4.2.py}
+\end{answer}
+
+The chosen number of hidden neurons is 10, the learning rate is set to 0.001 with 1000 iterations.
+
+\centering\includegraphics[width=0.7\linewidth]{4-1.png}
+
+
 
 \end{question}
 

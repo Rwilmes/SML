@@ -23,6 +23,11 @@ function [Wx,Wy,MSE]=trainMLP(p,H,m,mu,alpha,X,D,epochMax,MSETarget)
 %   MSE: Mean square error vector.
 
 [p1 N] = size(X);
+if(p1~=p)
+    error('First dimension of X and p must be equal');
+end
+disp(alpha);
+
 bias = -1;
 
 X = [bias*ones(1,N) ; X];
@@ -40,9 +45,9 @@ MSETemp = zeros(1,epochMax);
 
 for i=1:epochMax
     
-    k = randperm(N);
-    X = X(:,k);
-    D = D(:,k);
+    %k = randperm(N);
+    %X = X(:,k);
+    %D = D(:,k);
     
     V = Wx*X;
     Z = 1./(1+exp(-V));
@@ -64,12 +69,14 @@ for i=1:epochMax
     
     % Ableitung sigmoid funktion
     df = Y.*(1-Y);
-    % Multiplikation mit (D-Y) ergibt dE/
+    %df = ones(size(Y));
+    % Multiplikation mit (D-Y) ergibt dE/dnet -> dirac symbol
     dGy = df .* E;
     
+    % Multiplication with S' includes the summation.
     DWy = mu/N * dGy*S';
     Ty = Wy;
-    Wy = Wy + DWy + alpha*WyAnt;
+    Wy = Wy + DWy;% + alpha*WyAnt;
     WyAnt = Ty;
     
     df= S.*(1-S);
@@ -78,7 +85,7 @@ for i=1:epochMax
     dGx = dGx(2:end,:);
     DWx = mu/N* dGx*X';
     Tx = Wx;
-    Wx = Wx + DWx + alpha*WxAnt;
+    Wx = Wx + DWx;% + alpha*WxAnt;
     WxAnt = Tx;
 end
 
