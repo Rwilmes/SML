@@ -26,7 +26,22 @@ SVMs try to find a hyperplane that separates the datasets. This is done by maxim
 \begin{question}{Quadratic Programming}{5}
 Formalize SVMs as a constrained optimization problem.
 
-\begin{answer}\end{answer}
+\begin{answer}
+The goal is to maximize the margin between two classes. This margin is given by $m=\frac{||w^T(x_1 -x_2)||}{||w||}$, where $x_1$ lies on the decision boundary and $x_2$ is the closes sample of a class to the decision boundary. Therefore, $w^T x_1 +b = 0$ and $wx_2+b=1$ are true, resulting in $w^T (x_2-x_1)= 1$
+
+Therefore, the margin is
+\[m=\frac{||w^T(x_1 -x_2)||}{||w||} = \frac{1}{||w||}
+\]
+
+This margin is to be maximized by minimizing $||w||^2$ under the side condition that all samples lie outside the margin, i.e. $y_i \cdot (w^Tx_i +b) \geq 1$
+
+With $X = (x_1, \cdots, x_n)$ and $\hat{y} = (1/y_1, \cdots 1/y_n)^T$ and the $\leq$-sign used element wise, the constrained optimization problem is 
+\begin{align*}
+&\argmin_{w,b}{\frac{1}{2} w^T \mathbb{1}_n w}\\
+%&s.t.\;\;\;\; (y_i(w^Tx+b)-1 \geq 0)
+&-X^Tw\leq -\hat{y}+b
+\end{align*}
+\end{answer}
 \end{question}
 
 %----------------------------------------------
@@ -34,7 +49,10 @@ Formalize SVMs as a constrained optimization problem.
 \begin{question}{Slack Variables}{5}
 Explain the concept behind slack variables and reformulate the optimization problem accordingly. Without showing all the intermediate steps, write down the final solution of the problem.
 
-\begin{answer}\end{answer}
+\begin{answer}
+Slack variables are used to allow for classification errors. This is important to prevent overfitting of SVMs. A $0<\xi_i<1$ means, that the sample is within th classification margin but on the right side of the boundary. $1<\xi_i \leq 2$ means the sample is within the margin on the wrong side of the boundary. $2<\xi_i$ means the sample is on the wrong side of the margin. The last two cases result in misclassification.
+
+\end{answer}
 \end{question}
 
 %----------------------------------------------
@@ -42,7 +60,11 @@ Explain the concept behind slack variables and reformulate the optimization prob
 \begin{question}{Kernel Trick}{4}
 Explain the kernel trick and why it is particularly convenient in SVMs.
 
-\begin{answer}\end{answer}
+\begin{answer}
+The kernel trick helps to separate data that is not linearly separable. In order to solve this, the data can be projected into a higher dimensional space using a non-linear function $\Phi$. In this space, the data can often be separated linearly. However, this operation is computationally expensive, since the number of dimensions of this space can become very high.
+
+Applying the kernel-trick means realizing, that in all relevant formulas, $\Phi$ only appears in the way of $K(x_i, x_j)=\Phi(x_i)^T \Phi(x_j)$, where K is called kernel. This function is typically significantly easier to calculate and even allows for infinite dimensionality of the kernel space.
+\end{answer}
 \end{question}
 
 %----------------------------------------------
