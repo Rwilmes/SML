@@ -29,7 +29,13 @@ Highlight the qualitative differences between classical neural networks and deep
 Give an intuition of the innovations introduced in deep learning compared to traditional NN.
 (Hint: have a look \href{http://arxiv.org/abs/1206.5538}{at this paper} and \href{https://plus.google.com/100849856540000067209/posts/9BDtGwCDL7D}{at this Google+ discussion}.)
 
-\begin{answer}\end{answer}
+\begin{answer}
+\emph{Deep networks} differ from classical neural networks in their number of hidden layers. Classical neural networks commonly have one or two hidden layers and are used for supervised learning only. However, deep networks have way more hidden layers and can be trained in an supervised and unsupervised way in order to cope with supervised and unsupervised learning problems.\\
+
+The limitations of classical neural networks are their low amount of hidden layers, which leads to  linear dependencies of the bottom layer from the layers above. This directly limits what kind of problems the neural network can learn. However, the addition of more layers vastly increases the quality of the learning algorithm. As each hidden unit is connected to many otehr hidden units below, each hidden layer can be seen as a non-linear combination of the layers below. The additional optimization transforms the layers into optimally weighted, non-linear combiinations of the layers below. Adding an decrease of dimensionality to each layer, as in each sequential hidden layer has less units than the one below, results in a lower dimensional projection from layer to layer. In summation this results in a non-linear, optimally weighted, lower dimensional projection in each subsequent layer of the deep network.
+
+Furthermore, when using machine learning appraoches like SVM, one has to invest a big deal into (hand-crafted) feature extraction for the given problem. As the automated process of deep learning already includes a high-level feature extraction this is not neccessary and taken care of by the deep learning algorithm.
+\end{answer}
 
 \end{question}
 
